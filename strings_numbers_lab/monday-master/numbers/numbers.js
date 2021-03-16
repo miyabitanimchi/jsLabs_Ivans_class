@@ -13,11 +13,12 @@ const numberLib = () =>
         }
       }
       // console.log(NumberListA(1, 5));
-      // console.log(NumberListB(1, 10, 0));
+      console.log(NumberListB(3, 10, 2));
+      // console.log(randomNumberBetweenRange(1, 10))
       // console.log(IsOdd(2));
       // console.log(IsEven(4));
-      console.log(RandomNumberList(1, 20));
-      // console.log(NumberListC(2, 10, false));
+      // console.log(RandomNumberList(1, 20));
+      // console.log(NumberListC(2, 10, true));
 
 function add(a, b) {
     // add a to b
@@ -65,21 +66,28 @@ function NumberListA(start,end)
     return listA;
     }
 
-function NumberListB(start, count, skipEvery)
+function NumberListB(start, end, skipEvery)
     {
     // return list of numbers starting at start and ending at end but skipping every N (ie: skip every 2, or skip every 3)
     let listB = [];
-    let skipCount = 0;
-    for (let i = start; i <= count; i++) {
-      if (skipCount === skipEvery) {
+    // let skipCount = 0;
+    for (let i = start; i <= end; i++) {
+      if (skipEvery === 0) {
+        listB.push(i); 
+        
+      } else if (skipEvery > 0) {
         listB.push(i);
-      } else if (skipCount < skipEvery && i % skipEvery === 0) {
-        listB.filter((val) => !val % skipEvery);
+        // console.log(listB);
+        listB.filter((val, index) => index % skipEvery !== 0);
       }
+    }
+    return listB;
+  }
 
-      return listB;
-    }
-    }
+  function randomNumberBetweenRange(min, max) {  
+    return Math.random() * (max - min) + min; 
+}  
+
 
 function NumberListC(start,count, shouldBeRandomOrNot)
     {
@@ -87,7 +95,7 @@ function NumberListC(start,count, shouldBeRandomOrNot)
     let listc = [];
     for (let i = start; i <= (start + count); i ++) {
         if (shouldBeRandomOrNot === true) {
-          listc.push(Math.floor(Math.random() * (start - (start + count)) + (start + count)));
+          listc.push(Math.floor(randomNumberBetweenRange(start,(start+count))));
         } else {
           listc.push(i);
         }
