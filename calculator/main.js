@@ -33,8 +33,11 @@ const pressedAOperator = (operator) => {
        display.textContent[display.textContent.length - 1] = operator;
    } else if (isNaN(display.textContent[display.textContent.length - 1]) == true) { // Means the last character is an operator except the previous one
         let position = display.textContent.lastIndexOf(lastOperator);
-            display.textContent[position] = operator;
-            // display.textContent = display.textContent;
+        console.log(lastOperator);
+        console.log(position);
+            // display.textContent[position] = operator;
+            display.textContent = display.textContent.replace(lastOperator, operator);
+            lastOperator = operator;
             console.log(true);
     } else {
         lastOperator = operator;
@@ -44,14 +47,18 @@ const pressedAOperator = (operator) => {
     if (operator === "=") {
         pressedEqual(operator);
     }
+    lastDot = "";
 }
 
 const pressedDot = (dot) => {
+
     if (lastDot === ".") {
-        dot = "";
         display.textContent[display.textContent.length - 1] = lastDot;
+        lastDot = "";
+        
+    } else {
+        display.textContent = display.textContent + dot;
     }
-    display.textContent = display.textContent + dot;
     lastDot = ".";
 }
 
@@ -59,6 +66,7 @@ const pressedC = () => {
     display.textContent = "0";
     calculation = "";
     lastOperator = "";
+    lastDot = "";
 }
 
 const pressedEqual = () => {
