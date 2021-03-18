@@ -12,12 +12,13 @@ const numberLib = () => {
         }
       }
       // console.log(NumberListA(1, 5));
-      console.log(NumberListB(3, 10, 0));
+      // console.log(NumberListB(3, 10, 0));
       // console.log(randomNumberBetweenRange(1, 10))
       // console.log(IsOdd(2));
       // console.log(IsEven(4));
       console.log(RandomNumberList(1, 20));
-      console.log(NumberListC(2, 10, false));
+      // console.log(NumberListC(2, 10, false));
+      // console.log(RandomNumberListB(5, 14, 5, true));
 
   function add(a, b) {
       // add a to b
@@ -36,6 +37,9 @@ const numberLib = () => {
 
   function div(a, b) {
       // dib a by b
+      if (b == 0) {
+        return;
+      }
       return a / b;
     }
 
@@ -115,13 +119,25 @@ const numberLib = () => {
       // return list of random numbers between start and end
       let randomNumFromTheList = [];
       for (let i = start; i <= end; i++) {
-        randomNumFromTheList.push(Math.floor(Math.random() * i + start));
+        let index1 = Math.round(Math.random() * i + start)
+        randomNumFromTheList.push(index1);
       }
       return randomNumFromTheList;
       }        
 
   function RandomNumberListB(start,end,count, allowDuplicates) {
       // return count number of random numbers, between start and end. use allowDuplicates to choose if we should allow duplicates in the list or not
+      let randomNumFromTheListB = [];
+      let numberList = NumberListA(start, end)
+      if (allowDuplicates) {
+        return NumberListC(start, count, true);
+      }
+      for (i = 0; i < count; i++) {
+        const index = Math.floor(Math.random() * numberList.length);
+        randomNumFromTheListB.push(numberList[index]);
+        numberList.splice(index, 1);
+      }
+      return randomNumFromTheListB;
       }        
 
       
