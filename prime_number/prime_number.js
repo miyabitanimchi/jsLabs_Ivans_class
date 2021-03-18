@@ -20,7 +20,6 @@ console.log(isPrimeNumber(123459997));
 
 const showPrimeNumberFromTheRange = (start, end) => {
     let list = [];
-    let primeNumList;
     for (i = start; i <= end; i++) {
         list.push(i);
     }
@@ -45,4 +44,4 @@ const showPrimeNumberFromTheRange = (start, end) => {
         return list;
 }
 
-console.log(showPrimeNumberFromTheRange(3, 10));
+console.log(showPrimeNumberFromTheRange(1, 10));

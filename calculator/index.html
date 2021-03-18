@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <div class="calc-gridContainer">
+            <div id="calcDisplay">0</div>
+            <button value="+" class="operator" onclick="pressedAOperator('+')">+</button>
+            <button value="-" class="operator" onclick="pressedAOperator('-')">-</button>
+            <button value="*" class="operator" onclick="pressedAOperator('*')">×</button>
+            <button value="/" class="operator" onclick="pressedAOperator('/')">÷</button>
+            <button value="7" onclick="pressedANumber(7)">7</button>
+            <button value="8" onclick="pressedANumber(8)">8</button>
+            <button value="9" onclick="pressedANumber(9)">9</button>
+            <button value="4" onclick="pressedANumber(4)">4</button>
+            <button value="5" onclick="pressedANumber(5)">5</button>
+            <button value="6" onclick="pressedANumber(6)">6</button>
+            <button value="1" onclick="pressedANumber(1)">1</button>
+            <button value="2" onclick="pressedANumber(2)">2</button>
+            <button value="3" onclick="pressedANumber(3)">3</button>
+            <button value="." onclick="pressedDot('.')">.</button>
+            <button value="0" onclick="pressedANumber(0)">0</button>
+            <button class="clear" id="clear-btn" onclick="pressedC()">C</button>
+            <button class="equal-sign operator" value="=" onclick="pressedEqual()">=</button>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
