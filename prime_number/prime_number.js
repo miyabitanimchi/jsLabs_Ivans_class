@@ -10,21 +10,18 @@ if (num < 2 || !Number.isInteger(num)) {
     return false;  
 } else if (num % 2 === 1) {
     let rangeToCheckPrime = num / 2;
-    for (i = 2; i <= rangeToCheckPrime - 1; i++) {
+    for (let i = 2; i <= rangeToCheckPrime - 1; i++) {
         if (num % i === 0) {
             console.log( `${num} is not a prime number`);
             return false;
         } 
     }
     console.log(`${num} is a prime number`);
-    return true;
-    
+    return true; 
 }
 }
-// console.log(isPrimeNumber(5));
-if (isPrimeNumber("5")) {
-    console.log("5 is a prime number")
-}
+isPrimeNumber(5);
+console.log(isPrimeNumber(5));
 
 
 
@@ -32,14 +29,11 @@ const showPrimeNumbersList = (start, end) => {
     let list = [];
     for (let i = start; i <= end; i++) {
         if (isPrimeNumber(i)) {
-            console.log(i);
+            // console.log(i);
             list.push(i);
         }
-
-    }
-    console.log(list);
-        
+    }        
         return list;
 }
 
-console.log(showPrimeNumbersList(1, 1000000));
+console.log(showPrimeNumbersList(1, 50));
